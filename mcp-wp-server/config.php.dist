@@ -1,0 +1,27 @@
+<?php
+
+/*
+ * Configuration du serveur MCP.
+ * Copier ce fichier vers config.php et renseigner les valeurs.
+ */
+
+return [
+    // Connexion à la base WordPress, avec un utilisateur aux droits
+    // limités (SELECT + UPDATE sur wp_posts uniquement, voir README).
+    'db' => [
+        'dsn'      => 'mysql:host=127.0.0.1;port=3306;dbname=wpdemo;charset=utf8mb4',
+        'user'     => 'mcp',
+        'password' => 'change-me',
+    ],
+
+    // Jeton Bearer attendu dans l'en-tête Authorization.
+    // Chaîne vide : pas d'authentification (démo locale uniquement).
+    'auth_token' => '',
+
+    // Identité annoncée au client lors du handshake initialize.
+    'server' => [
+        'name'    => 'wp-mcp-server',
+        'version' => '1.0.0',
+    ],
+];
+
