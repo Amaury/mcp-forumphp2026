@@ -12,10 +12,15 @@ doc:
 
 wp:
 	@echo "$(BOLD)Lancement du serveur WordPress sur le port 8081$(RESET)"
-	cd wpdemo; php -S 127.0.0.1:8081
+	@echo "  Site web : $(DIM)http://127.0.0.1:8081$(RESET)"
+	@echo "  Admin    : $(DIM)http://127.0.0.1:8081/wp-admin/$(RESET)"
+	@echo
+	cd wpdemo; PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8081
 
 mcp:
 	@echo "$(BOLD)Lancement du serveur MCP sur le port 8080$(RESET)"
+	@echo "  Pour ajouter le serveur dans Claude : $(DIM)claude mcp add --transport http blog http://127.0.0.1:8080/mcp$(RESET)"
+	@echo
 	cd mcp-wp-server; php -S 127.0.0.1:8080 public/index.php
 
 db:
